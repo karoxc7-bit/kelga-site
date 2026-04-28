@@ -1,0 +1,101 @@
+var processUsernameReady = {'username':false, 'email':false, 'password':false};
+
+function toggleAccountCreateSubmitButtons()
+{
+        if(processUsernameReady['username'] && processUsernameReady['email'] && processUsernameReady['password'])
+        {
+                $("#create-account-submit-button").prop('disabled', false);
+        }
+	else
+	{
+                $("#create-account-submit-button").prop('disabled', true);
+        }
+}
+
+function processEmailSearch(e)
+{
+        var email = jQuery.trim($(e).val());
+
+        $("#email-feedback").html("").removeClass("valid-feedback").removeClass("invalid-feedback");
+        $("#email").removeClass("is-valid is-invalid");
+
+        if(email.length == 0)
+        {
+                return;
+        }
+	else if(!email.match(/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/gi))
+        {
+                $("#email").addClass("is-invalid");
+                processUsernameReady['email'] = false;
+        }
+	else
+	{
+                $("#email").addClass("is-valid");
+                processUsernameReady['email'] = true;
+        }
+
+	toggleAccountCreateSubmitButtons();
+}
+
+function processPasswordSearch(e)
+{
+        var password = jQuery.trim($(e).val());
+
+        $("#password-feedback").html("").removeClass("valid-feedback").removeClass("invalid-feedback");
+        $("#password").removeClass("is-valid is-invalid");
+
+        if(password.length == 0)
+        {
+                return;
+        }
+	else if(password.length < 8)
+        {
+                $("#password-feedback").html("Your password must be at least eight characters long.").addClass("invalid-feedback");
+                $("#password").addClass("is-invalid");
+                processUsernameReady['password'] = false;
+        }
+	else
+	{
+                $("#password").addClass("is-valid");
+                processUsernameReady['password'] = true;
+        }
+
+	toggleAccountCreateSubmitButtons();
+}
+
+function togglePasswordShow(e)
+{
+        var target = $(e).attr('data-target');
+        var checked = $(e).attr('aria-checked');
+
+        if(checked == 'false')
+        {
+                // show password
+                $('#'+target).attr('type', 'text');
+                $(e).attr('aria-checked', 'true')
+                $(e).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
+        }
+	else
+        {
+                // hide password
+                $('#'+target).attr('type', 'password');
+                $(e).attr('aria-checked', 'false')
+                $(e).find('i').removeClass('fa-eye-slash').addClass('fa-eye');
+        }
+}
+
+function getCookie(cname) {
+  var name = cname + "=";
+  var decodedCookie = decodeURIComponent(document.cookie);
+  var ca = decodedCookie.split(';');
+  for(var i = 0; i <ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}

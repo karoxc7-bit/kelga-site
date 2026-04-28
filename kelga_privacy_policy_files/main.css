@@ -1,0 +1,114 @@
+.pieChartContainer
+{
+	height: 500px;
+}
+
+.analyticsItemBox
+{
+        padding: 0px 0px 0px 20px;
+}
+
+.linkButtonIcon
+{
+        height:30px;
+        width:30px;
+}
+
+.linkButton:hover
+{
+        background-color: transparent;
+}
+.linkButton:focus
+{
+        outline-offset: 0px;
+        background-color: transparent;
+}
+.linkButton
+{
+        background-color: transparent;
+        background-repeat: no-repeat;
+        outline: none;
+
+        padding: 0px 0px 0px 0px;
+        margin: 0px 10px 0px 0px;
+        display: inline;
+        border: 0px;
+        text-decoration: underline !important;
+}
+
+.btn
+{
+	border-radius: 0 !important;
+}
+
+.bg-medium
+{
+	background-color: #eeeff1;
+}
+
+.feature-check-1
+{
+	background-color: #fff4ff;
+}
+
+.feature-check-2
+{
+	background-color: #fde9fd;
+}
+
+.feature-yes
+{
+	font-size: 20px;
+	color: #92278f;
+}
+
+.feature-no
+{
+	font-size: 20px;
+	color: #818181;
+}
+
+.btn-secondary
+{
+	background-color: white;
+	color: black;
+}
+
+.btn-secondary:hover, .btn-secondary:focus
+{
+	background-color: #f5f5f5;
+	color: black;
+}
+
+.page-master-container
+{
+	margin-top:10px;
+}
+
+.page-generic-container
+{
+	margin-top:20px;
+}
+
+.home-start-button
+{
+	margin-top: 40px;
+}
+
+.home-demo-inner
+{
+	background-color: #838383;
+	display: inline-block;
+	padding: 15px;
+}
+
+.home-demo
+{
+	margin-top: 75px;
+}
+
+.home-slogan
+{
+	margin-top: 75px;
+}
+
